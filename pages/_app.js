@@ -1,14 +1,16 @@
 import '../styles/globals.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'tailwindcss/tailwind.css'
-import { useState, useEffect } from 'react'
 import {Layout} from '../components'
+import { SSRProvider } from 'react-bootstrap';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  
+    <SSRProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SSRProvider>
   )
 }
 

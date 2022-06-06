@@ -5,8 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
 body {
-    background: #1D2023;
-    color: #ffffff;
+    background: #1D2023 !important;
+    color: #ffffff !important;
     font-family: 'Inter', sans-serif;
 }
 
@@ -38,6 +38,18 @@ body {
   }
   
   a {
-    color: inherit;
-    text-decoration: none;
+    color: #ffffff !important;
+    text-decoration: none !important;
   }
+  
+  a:hover {
+    color: #FFC843 !important;
+  }
+
+  .dropdown-menu {
+    background: #1D2023 !important;
+    padding-bottom: 25px;
+  }
+
+
+  
