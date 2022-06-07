@@ -1,18 +1,18 @@
-import React, {useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 import { Search } from 'react-bootstrap-icons'
 import { Container, NavDropdown, Navbar } from 'react-bootstrap';
-
-const categories = [
-  {name: 'Tech', slug: 'tech'},
-  {name: 'Art', slug: 'art'}
-];
+import { getCategories } from '../services';
 
 const Navigation = () => {
+	const [categories, setCategories] = useState([])
+
+	useEffect(() => {
+		getCategories().then(categories => setCategories(categories))
+	}, )
 	return (
 		<div className="container px-28 mx-auto">
-			
-			<nav className="flex flex-row justify-between py-10 items-center relative">
+			<nav className="shadow-lg rounded-lg flex flex-row justify-between py-2 my-10 items-center relative">
 				<Navbar>
 					<Container>
 						<NavDropdown title="EXPLORE" id="collasible-nav-dropdown">

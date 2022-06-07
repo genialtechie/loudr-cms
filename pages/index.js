@@ -10,6 +10,7 @@ const index = ({posts}) => {
           <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
         </Head>
         <div className="container px-32 mx-auto">
+          <PostWidget category={{"categories": "Fashion"}} />
           {posts.map((post) => <PostCard post={post.node} key={post.node.slug} />)}
           <PostWidget category={{"categories": "Tech"}} />
               
