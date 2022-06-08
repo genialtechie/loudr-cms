@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Navigation, PostCard, PostWidget } from '../components';
+import { PostCard, PostWidget } from '../components';
 import { getPosts } from '../services';
 
 const index = ({posts}) => {
@@ -9,7 +9,7 @@ const index = ({posts}) => {
           <title>Loudr</title>
           <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
         </Head>
-        <div className="container px-32 mx-auto">
+        <div className="container px-16 lg:px-32 mx-auto">
           <PostWidget category={{"categories": "Fashion"}} />
           {posts.map((post) => <PostCard post={post.node} key={post.node.slug} />)}
           <PostWidget category={{"categories": "Tech"}} />

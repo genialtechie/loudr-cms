@@ -4,7 +4,7 @@ import moment from 'moment'
 
 const PostCard = ({ post }) => {
   return (
-    <div className='shadow-lg rounded-lg flex flex-row-reverse p-4 lg:p-11 pb-12 mb-8'>
+    <div className='shadow-lg rounded-lg flex flex-col lg:flex-row-reverse p-4 lg:p-11 pb-12 mb-8'>
       <div className='relative overflow-hidden basis-1/2 shadow-md pb-80 mb-6'>
         <img src={post.featuredImage.url} alt="" className="object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg" />
       </div>
