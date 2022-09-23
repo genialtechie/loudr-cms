@@ -49,7 +49,7 @@ const PostCard = ({ post }) => {
         </div>
         <p className="mb-6 px-4 text-center lg:px-14">{post.excerpt}</p>
         <div className="text-center">
-          <Link href={`/posts/${post.slug}`}>
+          <Link href={`/post/${post.slug}`}>
             <span className="trasition transform cursor-pointer font-bold duration-200 hover:pt-4 hover:text-orange-400">
               Continue Reading...
             </span>
