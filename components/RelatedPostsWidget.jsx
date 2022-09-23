@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { getCategoryPosts } from '../services'
+import moment from 'moment/moment'
+import { getRelatedPosts } from '../services'
 import Link from 'next/dist/client/link'
 
-const PostWidget = ({ category }) => {
-  const [posts, setPosts] = useState([])
+const RelatedPostsWidget = ({ categories, slug }) => {
+  const [relatedPosts, setRelatedPosts] = useState([])
 
-  useEffect(async () => {
-    const data = await getCategoryPosts(category)
-    setPosts(data)
-  }, [category])
+  useEffect(() => {
+    getRelatedPosts(categories, slug).then((result) => setRelatedPosts(result))
+  }, [slug])
   return (
     <div className="mb-8 h-fit w-full rounded-lg shadow-lg">
-      <span className="h-fit pl-3 text-xs uppercase text-slate-500">
-        {category}
-      </span>
+      <span className="h-fit pl-3 text-xs text-slate-500">RELATED POSTS</span>
       <div className="flex flex-col lg:flex-row">
-        {posts.map((post) => (
+        {relatedPosts.map((post) => (
           <div
             className="flex flex-row px-4 pb-4 pt-2 lg:basis-1/3"
             key={post.slug}
@@ -23,7 +21,7 @@ const PostWidget = ({ category }) => {
             <span className="my-auto">
               <img
                 src={post.featuredImage.url}
-                alt=""
+                alt={post.title}
                 className="h-24 w-28 object-cover p-2"
               />
             </span>
@@ -31,6 +29,9 @@ const PostWidget = ({ category }) => {
               <h2 className="text-xl font-bold">
                 <Link href={`/post/${post.slug}`}>{post.title}</Link>
               </h2>
+              <p className="text-xs text-gray-300">
+                {moment(post.createdAt).format('MMM DD, YYYY')}
+              </p>
               <span className="text-sm">
                 {post.excerpt.split(' ').slice(0, 13).join(' ').concat('...')}
               </span>
@@ -42,4 +43,4 @@ const PostWidget = ({ category }) => {
   )
 }
 
-export default PostWidget
+export default RelatedPostsWidget

@@ -1,48 +1,67 @@
-import React, {useState, useEffect} from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Head from 'next/head'
 import { Search } from 'react-bootstrap-icons'
-import { Container, NavDropdown, Navbar } from 'react-bootstrap';
-import { getCategories } from '../services';
-import SearchModal from './SearchModal';
+import { Container, NavDropdown, Navbar } from 'react-bootstrap'
+import { getCategories } from '../services'
+import SearchModal from './SearchModal'
+import Image from 'next/image'
+import Logo from '../public/logo.png'
 
 const Navigation = () => {
-	const [categories, setCategories] = useState([]);
-	const [show, setShow] = useState(false);
+  const [categories, setCategories] = useState([])
+  const [show, setShow] = useState(false)
 
-	useEffect(() => {
-		getCategories().then(categories => setCategories(categories))
-	}, )
-	return (
-		<div className="container px-16 lg:px-28 mx-auto">
-			<nav className="shadow-lg rounded-lg flex flex-row justify-between py-2 mt-20 mb-8 lg:my-8 items-center relative">
-				<Navbar>
-					<Container>
-						<NavDropdown title="EXPLORE" id="collasible-nav-dropdown">
-						{categories.map((category) => (
-							<NavDropdown.Item key={category.slug} href={`/${category.slug}`} className='hover:bg-slate-600' >
-								{category.name}
-							</NavDropdown.Item>
-						))}
-						</NavDropdown>
-						<NavDropdown title="SHOP" id="collasible-nav-dropdown">
-							<NavDropdown.Item href='coming-soon' className='hover:bg-slate-600'>COMING SOON!</NavDropdown.Item>
-						</NavDropdown>
-						
-					</Container>
-				</Navbar>
-				<span className='h-fit w-fit mx-auto absolute inset-x-1/2 -top-14 lg:top-3 flex justify-center'>
-					<Link href='/'>
-						<img src="logo.png" alt="logo" className='h-12' />
-					</Link>
-				</span>
-				<div className='px-10'>
-					<Search color='white' onClick={() => setShow(true)}/>
-				</div>
-			</nav>
-			<SearchModal show={show} hide={() => setShow(false)} />
-		</div>
-		
-	)
+  useEffect(() => {
+    getCategories().then((categories) => setCategories(categories))
+  })
+  return (
+    <div className="container mx-auto px-16 lg:px-28">
+      <Head>
+        <title>Loudr</title>
+        <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+      </Head>
+      <span className=" mt-20 flex h-fit w-full flex-row justify-center hover:cursor-pointer">
+        <Link href="/">
+          <Image src={Logo} alt="logo" width={40} height={60} />
+        </Link>
+      </span>
+      <nav className="mt-12 mb-8 flex flex-row items-center justify-between rounded-lg py-2 shadow-lg lg:my-8">
+        <Navbar>
+          <Container>
+            <NavDropdown title="EXPLORE" id="collasible-nav-dropdown">
+              {categories.map((category) => (
+                <NavDropdown.Item
+                  key={category.slug}
+                  href={`/category/${category.slug}`}
+                  className="hover:bg-slate-600"
+                >
+                  {category.name}
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
+            <NavDropdown title="SHOP" id="collasible-nav-dropdown">
+              <NavDropdown.Item
+                href="coming-soon"
+                className="hover:bg-slate-600"
+              >
+                COMING SOON!
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Container>
+        </Navbar>
+
+        <div className="px-10">
+          <Search
+            className="a cursor-pointer"
+            color="white"
+            onClick={() => setShow(true)}
+          />
+        </div>
+      </nav>
+      <SearchModal show={show} hide={() => setShow(false)} />
+    </div>
+  )
 }
 
 export default Navigation

@@ -1,6 +1,6 @@
 import '../styles/globals.scss'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'tailwindcss/tailwind.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {Layout} from '../components'
 import { SSRProvider } from 'react-bootstrap';
 
