@@ -5,56 +5,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
 body {
-    background: #1D2023 !important;
-    color: #ffffff !important;
-    font-family: 'Inter', sans-serif;
+  background: #1d2023 !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif;
 }
 
-.text-shadow{
-    text-shadow: 0px 2px 0px rgb(0 0 0 / 30%);
-  }
-  
-  .adjacent-post{
-    & .arrow-btn{
-      transition: width 300ms ease;
-      width: 50px;
-    }
-    &:hover{
-      & .arrow-btn{
-        width: 60px;
-      }
-    }
-  }
-  
-  .react-multi-carousel-list {
-    & .arrow-btn{
-      transition: width 300ms ease;
-      width: 50px;
-      &:hover{
-        width: 60px;
-      }
-    }
-    
-  }
-  
-  a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-  }
-  
-  a:hover {
-    color: #FFC843 !important;
-  }
+.text-shadow {
+  text-shadow: 0px 2px 0px rgb(0 0 0 / 30%);
+}
 
-  .dropdown-menu {
-    background: #1D2023 !important;
-    padding-bottom: 25px;
+.adjacent-post {
+  & .arrow-btn {
+    transition: width 300ms ease;
+    width: 50px;
   }
+  &:hover {
+    & .arrow-btn {
+      width: 60px;
+    }
+  }
+}
+
+.react-multi-carousel-list {
+  & .arrow-btn {
+    transition: width 300ms ease;
+    width: 50px;
+    &:hover {
+      width: 60px;
+    }
+  }
+}
+
+a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+a:hover,
+.svg-icon:hover {
+  color: #ffc843 !important;
+}
+
+.dropdown-menu {
+  background: #1d2023 !important;
+  padding-bottom: 25px;
+}
+
+.dropdown-item:hover {
+  background: #ffc843 !important;
+  color: #1d2023 !important;
+}
 
 .modal-90w {
   min-width: 80%;
 }
 
 .bg-dialog {
-  background-color: #1D2023;
+  background-color: #1d2023;
 }
